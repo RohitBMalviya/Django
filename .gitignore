@@ -14,6 +14,8 @@ venv.bak/
 *.__pycache__
 db.sqlite3
 media
+__pycache__/
+*.py[cod]
 
 # Distribution / packaging 
 .Python build/ 
