@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class ModelExample(models.Model):
+class ExampleVariety(models.Model):
     ENUMSEXAMPLE = [
         ('EM1','ENUM1'),
         ('EM2','ENUM2'),
@@ -23,7 +23,7 @@ class ModelExample(models.Model):
 # One to Many
 
 class ExampleReview(models.Model):
-    exampleForeignKey = models.ForeignKey(ModelExample,on_delete=models.CASCADE,related_name="exampleReviews")
+    exampleForeignKey = models.ForeignKey(ExampleVariety,on_delete=models.CASCADE,related_name="exampleReviews")
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     rating = models.IntegerField()
     commet = models.TextField()
@@ -37,21 +37,21 @@ class ExampleReview(models.Model):
 # Many to Many
 
 class ExampleStore(models.Model):
-    name =  models.CharField(max_length=100)
+    storeName =  models.CharField(max_length=100)
     location = models.CharField(max_length=100)
-    exampleVarieties = models.ManyToManyField(ModelExample,related_name="exampleStores")
+    exampleVarieties = models.ManyToManyField(ExampleVariety,related_name="exampleStores")
 
     def __str__(self):
-        return self.name
+        return self.storeName
 
 
 # One to One
 
 class ExampleCertificate(models.Model):
-    exampleCertificate = models.OneToOneField(ModelExample,on_delete=models.CASCADE,related_name="exampleCertificate")
+    exampleCertificateName = models.OneToOneField(ExampleVariety,on_delete=models.CASCADE,related_name="exampleCertificate")
     certificateNumber = models.CharField(max_length=100)
     issueDate = models.DateTimeField(default=timezone.now)
     validUntil = models.DateTimeField()
     
     def __str__(self):
-        return f'Certificate for {self.exampleCertificate.name}'
+        return f'Certificate for {self.exampleCertificateName.name}'

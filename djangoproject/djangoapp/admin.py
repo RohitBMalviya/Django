@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ModelExample,ExampleReview,ExampleStore,ExampleCertificate
+from .models import ExampleVariety,ExampleReview,ExampleStore,ExampleCertificate
 
 # Register your models here.
 class ExampleReviewInline(admin.TabularInline):
@@ -11,12 +11,12 @@ class ExampleModelAdmin(admin.ModelAdmin):
     inlines = [ExampleReviewInline]
 
 class ExampleStoreAdmin(admin.ModelAdmin):
-    list_display = ('name','location')
+    list_display = ('storeName','location')
     filter_horizontal = ('exampleVarieties',)
 
 class ExampleCertificateAdmin(admin.ModelAdmin):
-    list_display = ('exampleCertificate','certificateNumber')
+    list_display = ('exampleCertificateName','certificateNumber')
 
-admin.site.register(ModelExample,ExampleModelAdmin)
+admin.site.register(ExampleVariety,ExampleModelAdmin)
 admin.site.register(ExampleStore,ExampleStoreAdmin)
 admin.site.register(ExampleCertificate,ExampleCertificateAdmin)

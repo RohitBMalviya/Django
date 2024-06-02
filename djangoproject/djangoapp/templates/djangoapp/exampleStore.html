@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+
+{% block title %} Store {% endblock %} 
+
+{% block content %}
+<h1 class="text-8xl">Example Store</h1>
+<br>
+
+<div class="flex flex-col justify-center items-center gap-4">
+    <form method="POST" class="text-black text-3xl">
+        {% csrf_token %}
+        {{form.as_p}}
+    <br>
+    <button type="submit" class="text-2xl text-green-500 rounded-xl bg-white p-4">Search Store</button>
+    </form>
+</div>
+<br>
+{% if stores %}
+    <h2 class="text-6xl">Stores Available</h2>
+    <br>
+    <ul>
+        {% for store in stores %}
+            <li class="text-4xl">
+                {{store.storeName}} --- {{store.location}}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<br>
+{% endblock %}
+
