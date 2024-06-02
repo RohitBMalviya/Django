@@ -59,51 +59,37 @@ python .\manage.py createsuperuser
 # TAILWIND SETUP
 
 ```
-
 python manage.py tailwind init
-
 ```
 
 ## Add in setting.py of Project
 
 ```
-
 TAILWIND_APP_NAME = 'theme'
-
 ```
 
 ```
-
 INTERNAL_IPS = ['127.0.0.1']
-
 ```
 
 ```
-
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
-
 ```
 
 ## Add in basic.html of template folder
 
 ```
-
 {% load static tailwind_tags %}
-
 ```
 
 ```
-
 {% tailwind_css %}
-
 ```
 
 **To activate the tailwind**
 
 ```
-
 python manage.py tailwind start
-
 ```
 
 # TO INJECT HTML(template)
@@ -111,13 +97,11 @@ python manage.py tailwind start
 ## Add in setting.py
 
 ```
-
 TEMPLATES = [
 {
 'DIRS': ['templates']
 }
 ]
-
 ```
 
 # TO INJECT CSS
@@ -125,27 +109,20 @@ TEMPLATES = [
 ## Add in setting.py of Project
 
 ```
-
 import os
-
 ```
 
 ```
-
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
-
 ```
 
 ## Add in basic.html file or any html file
 
 ```
-
 {% load static %}
-
 ```
 
 ```
-
 <link rel="stylesheet" href="{% static 'style.css' %}" />
 ```
 
