@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+
+{% block title %} Description {% endblock %} 
+
+{% block content %}
+<h1 class="text-8xl">Description</h1>
+<br>
+<div class="flex flex-col justify-center items-center gap-4">
+    <h3 class='text-4xl'>{{example.description}}</h3>
+    <a href="{% url 'checkPrice' example.id %}">
+        <button class="text-2xl text-green-500 rounded-xl bg-white p-4">Check-Price</button>
+    </a>
+    <br>
+</div>
+
+
+{% endblock %}
+

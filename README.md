@@ -24,6 +24,10 @@ pip install 'django-tailwind[reload]' --> to reload the Django
 python manage.py tailwind install --> to install tailwind in main project
 ```
 
+```
+pip install Pillow
+```
+
 # DJANGO SETUP
 
 ## To create Project
@@ -142,8 +146,43 @@ MIDDLEWARE = [
   ]
 ```
 
-## Add in urls.py at last
+## Add in urls.py of project at last
 
 ```
 path('**reload**',include('django_browser_reload.urls'))
+```
+
+# Media files such image to handle
+
+## Add in setting.py
+
+```
+MEDIA_URL = 'media/'
+MEDIA_ROOT = [os.path.join(BASE_DIR,'media')]
+```
+
+## Add in urls.py of project
+
+```
+from django.conf import settings
+from django.conf.urls.static import static
+```
+
+```
+urlpatterns = [
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+```
+
+# Models
+
+## To make sql table fields
+
+```
+python .\manage.py makemigrations
+```
+
+## To migrate
+
+```
+python .\manage.py migrate
 ```
