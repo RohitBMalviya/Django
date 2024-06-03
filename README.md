@@ -33,7 +33,7 @@ pip install Pillow
 ## To create Project
 
 ```
-django-admin startproject restapiProject
+django-admin startproject projectname
 ```
 
 ## To create ProjectApp
