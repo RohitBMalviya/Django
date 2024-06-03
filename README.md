@@ -3,7 +3,7 @@
 ## **Create .venv**
 
 ```
-pip -m venv .venv
+python -m venv .venv
 ```
 
 # MODULES
@@ -33,7 +33,7 @@ pip install Pillow
 ## To create Project
 
 ```
-python manage.py startproject projectname
+django-admin startproject restapiProject
 ```
 
 ## To create ProjectApp
